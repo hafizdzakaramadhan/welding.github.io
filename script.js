@@ -29,4 +29,22 @@ gsap.from(".header-title", {
     duration: 1.5,
 })
 
+gsap.from(".header-btn", {
+    opacity: 0,
+    y: 10,
+    delay: 1.5,
+    duration: 0.5,
+})
 
+//ANIMATION ON SCROll
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) =>{
+        if (entry.isIntersecting){
+            entry.target.classList.add("show");
+        } 
+    });
+});
+
+const hiddenElements = document.querySelectorAll(".hidden");
+hiddenElements.forEach((el) => observer.observe (el));
